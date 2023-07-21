@@ -1,0 +1,18 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %}Ro'yxatdan o'tish{% endblock title %}
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h2 class="text-center">Yangi foydalanuvchilarni ro'yxatdan o'tkazish</h2>
+
+            <p>Ro'yxatdan o'tish uchun quyidagi formani to'ldirinig</p>
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Ro'yxatdan o'tish</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

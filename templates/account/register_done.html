@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %}Ro'yxatdan o'tildi{% endblock title %}
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h2 class="text-center">{{ new_user.first_name }}, Tabriklaymiz ro'yxatdan o'tdingiz</h2>
+            <p class="text-center">Ro'yxatdan muvaffaqiyatli o'tdingiz</p>
+            <p class="text-center">Endi saytga <a href="{% url 'home_page' %}" style="color:blue"> Kirishingiz</a> mumkin </p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

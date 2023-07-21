@@ -1,0 +1,46 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Mahalliy Xabarlar{% endblock title %}
+
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="single_post_content_left">
+                {% for local in mahalliy_yangiliklar %}
+                {% if forloop.first %}
+
+                    <figure class="bsbig_fig"><a href="{{ local.get_absolute_url }}"
+                                                 class="featured_img"> <img
+                            alt="" src="{{ local.image.url }}"> <span
+                            class="overlay"></span> </a>
+                        <figcaption><a href="{{ local.get_absolute_url }}">{{ local.title }}</a>
+                        </figcaption>
+                        <p>{{ local.body | truncatewords:10 }}</p>
+                    </figure>
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="single_post_content_right">
+                <ul class="spost_nav">
+
+                    {% for local in mahalliy_yangiliklar %}
+                    {% if forloop.counter > 1 %}
+                    <li>
+                        <div class="media wow fadeInDown"><a href="{{ local.get_absolute_url }}"
+                                                             class="media-left">
+                            <img alt="" src="{{ local.image.url }}"> </a>
+                            <div class="media-body"><a href="{{ local.get_absolute_url }}"
+                                                       class="catg_title">{{ local.title }}</a></div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

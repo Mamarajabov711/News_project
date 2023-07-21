@@ -1,0 +1,46 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Sport Xabarlari{% endblock title %}
+
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="single_post_content_left">
+                {% for sport in sport_yangiliklar %}
+                {% if forloop.first %}
+
+                    <figure class="bsbig_fig"><a href="{{ sport.get_absolute_url }}"
+                                                 class="featured_img"> <img
+                            alt="" src="{{ sport.image.url }}"> <span
+                            class="overlay"></span> </a>
+                        <figcaption><a href="{{ sport.get_absolute_url }}">{{ sport.title }}</a>
+                        </figcaption>
+                        <p>{{ sport.body }}</p>
+                    </figure>
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="single_post_content_right">
+                <ul class="spost_nav">
+
+                    {% for sport in sport_yangiliklar %}
+                    {% if forloop.counter > 1 %}
+                    <li>
+                        <div class="media wow fadeInDown"><a href="{{ sport.get_absolute_url }}"
+                                                             class="media-left">
+                            <img alt="" src="{{ sport.image.url }}"> </a>
+                            <div class="media-body"><a href="{{ sport.get_absolute_url }}"
+                                                       class="catg_title">{{ sport.title }}</a></div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

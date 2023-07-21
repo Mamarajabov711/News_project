@@ -1,0 +1,46 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Texnologik Xabarlar{% endblock title %}
+
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="single_post_content_left">
+                {% for tech in texnologik_yangiliklar %}
+                {% if forloop.first %}
+
+                    <figure class="bsbig_fig"><a href="{{ tech.get_absolute_url }}"
+                                                 class="featured_img"> <img
+                            alt="" src="{{ tech.image.url }}"> <span
+                            class="overlay"></span> </a>
+                        <figcaption><a href="{{ tech.get_absolute_url }}">{{ tech.title }}</a>
+                        </figcaption>
+                        <p>{{ tech.body }}</p>
+                    </figure>
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="single_post_content_right">
+                <ul class="spost_nav">
+
+                    {% for tech in texnologik_yangiliklar %}
+                    {% if forloop.counter > 1 %}
+                    <li>
+                        <div class="media wow fadeInDown"><a href="{{ tech.get_absolute_url }}"
+                                                             class="media-left">
+                            <img alt="" src="{{ tech.image.url }}"> </a>
+                            <div class="media-body"><a href="{{ tech.get_absolute_url }}"
+                                                       class="catg_title">{{ tech.title }}</a></div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

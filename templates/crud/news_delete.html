@@ -1,0 +1,22 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}{{ news.title }}{% endblock title %}
+
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+
+            <h2 class="text-center">Joriy xabarni o'chirish</h2>
+
+ <h4 class="card-footer text-center"><form method="post">{% csrf_token %}
+                 <p class="text-center">{{ news.title | truncatewords:3 }}...sarlavhali yangilikni o'chirmoqchimisiz</p>
+                <button type="submit" style="background-color:red">O'chirish</button>
+            </form></h4>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

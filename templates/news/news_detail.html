@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}{{ news.title }}{% endblock title %}
+
+{% block content %}
+<section id="newsSection">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h2 class="text-center">{{ news.title }}</h2>
+            <h2 class="text-center" ><img src="{{ news.image.url }}"></h2>
+            <div class="post__body">
+                <p style="text-align: justify;">{{ news.body }}</p>
+                <h5>{{ news.publish_time }}</h5>
+
+            </div>
+            <div class="card-footer text-center">
+
+                <a href="{% url 'news_update' news.slug%}">Tahrirlash | </a>
+                 <a href="{% url 'news_delete' news.slug%}">O'chirish</a>
+            </div>
+        </div></div>
+</section>
+
+{% endblock content %}
